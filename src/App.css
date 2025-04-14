@@ -1,8 +1,13 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
+  min-width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0px;
   text-align: center;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .logo {
@@ -46,41 +51,7 @@
   filter: drop-shadow(0 0 1em #61dafbaa);
 }
 
-
-td {
-  text-align: center; 
-  vertical-align: middle;
-}
-tr {
-  text-align: center;
-}
-
 .stack-img {
   padding: 0.5em;
   height: 2em;
-}
-
-
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

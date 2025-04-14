@@ -1,74 +1,39 @@
 // import { CertificateCard } from '../shared/CertificateCard.tsx'
 // import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
-import { Box } from "@chakra-ui/react"
-import { Step, StepDescription, StepIcon, StepIndicator, StepNumber, StepSeparator, StepStatus, StepTitle, Stepper, useSteps } from '@chakra-ui/react'
-import { Grid, GridItem } from '@chakra-ui/react'
-import dayjs from 'dayjs';
-
-
-const steps = [
-  { title: 'First', description: 'Personal infos' },
-  { title: 'Second', description: 'My certifications' },
-  { title: 'Third', description: 'Projects I did' },
-]
-
-// const dayjs = require('dayjs')
+// import { Box } from "@chakra-ui/react"
+// import { Step, StepDescription, StepIcon, StepIndicator, StepNumber, StepSeparator, StepStatus, StepTitle, Stepper, useSteps } from '@chakra-ui/react'
+import { Box, Container, SimpleGrid  } from '@chakra-ui/react'
+import { MainInfos } from '../components/MainInfos';
+import { MyProjects } from '../components/MyProjects';
+import { MyCertificates } from '../components/MyCertificates';
+import { Link as RouterLink } from "react-router-dom";
+import { Navbar } from '../shared/NavBar';
 
 export function Home(){
-
-  const { activeStep } = useSteps({
-    index: 1,
-    count: steps.length,
-  })
-
   return (
     <>
-    <Box minW="98%" maxW="98%" mx="auto">
-      <Stepper index={activeStep} height='100px' gap='0'>
-        {steps.map((step, index) => (
-          <Step key={index}>
-            <StepIndicator>
-              <StepStatus
-                complete={<StepIcon />}
-                incomplete={<StepNumber />}
-                active={<StepNumber />}
-              />
-            </StepIndicator>
+    <Navbar/>
 
-            <Box flexShrink='0'>
-              <StepTitle>{step.title}</StepTitle>
-              <StepDescription>{step.description}</StepDescription>
-            </Box>
+    <Container maxW="100%"  p={0} m={0} px="0">
+      <Box>
+        <Box id="home" h="100vh" bg="gray.900" color="white" display="flex" alignItems="center" justifyContent="center" p={4}>
+          <MainInfos/>
+        </Box>
 
-            <StepSeparator />
-          </Step>
-        ))}
-      </Stepper>
-      <Grid  
-        gridTemplateColumns={'150px 1fr'}
-        templateRows='repeat(1, 4fr)'
-        templateColumns='repeat(2, 1fr)'
-        gap={0}
-      >
-        <GridItem colSpan={1} rowSpan={1} bg='' >
-          <img src={'https://avatars.githubusercontent.com/u/88861546?v=4'} className="avatar" alt="avatar" style={{width: '180px', height: 'auto'}} />
-        </GridItem>
-        <GridItem colSpan={1} bg='' >
-          <h2 style={{paddingLeft: '20px', textAlign: 'left', color: '#000'}}>
-            My name is Thiago Azevedo,
-            I born in brazil and had past { dayjs().diff(' 1992-06-18 12:00:00', 'day', true).toFixed(2) } days since i arrive:) 
-          </h2>
-          <h3 style={{paddingLeft: '20px', textAlign: 'left', color: '#000'}}>
-            I'm a full stack developer, formed in analysys and system development, and a lover of technology.
-          </h3>
-          <h4 style={{paddingLeft: '20px', textAlign: 'left', color: '#000'}}>
-            The whole things in development , the first motivation I've had is the indescribable sensations to do a bring life to good ideas, 
-            the challanges is part of the way and I love to solve one by on, and this thinking I believe I my myself in the future will thanks.
-          </h4>
-        </GridItem >
-      </Grid >
-    </Box>
+        <Box id="projects" h="100vh" bg="gray.700" display="flex" alignItems="center" justifyContent="center" p={4}>
+          <MyProjects/>
+        </Box>
 
+        <Box id="certificates" h="100vh" bg="gray.900" display="flex" alignItems="center" justifyContent="center" p={4}>
+          <MyCertificates/>
+        </Box>
+
+      </Box>
+    </Container>
+
+
+      
+  
       {/* <h1>Olá, este é meu portfolio 🖖  </h1>
       <tr>
         <td>
